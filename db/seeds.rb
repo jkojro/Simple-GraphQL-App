@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+10.times do
+  author = Author.create name: Faker::Book.author, age: Faker::Number.between(12, 100)
+
+  5.times do
+    author.books.create title: Faker::Book.title, genre: Faker::Book.genre
+  end
+end
+
+puts "seeded yo"
